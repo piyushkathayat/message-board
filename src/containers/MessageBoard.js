@@ -1,0 +1,56 @@
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import MessagePanel from '../components/MessagePanel';
+import MessageList from '../components/MessageList';
+import { addPost, deletePost } from '../actions/Actions';
+import { Seperator } from '../components/Seperator';
+import { getUniqueId } from '../utils/common';
+
+// TODO: move to CONST
+const MAIN_MESSAGE_PANEL_HEIGHT = 200;
+
+class MessageBoard extends Component {
+    render() {
+        const { messages } = this.props;
+        // console.log("messages =>", messages);
+
+        const messageHandler = (post) => {
+            const message = {
+                id: getUniqueId(messages),
+                message: post,
+                parentId: null,
+                author: 1
+            }
+            this.props.dispatchMessage(message);
+        };
+
+        return (
+            <Fragment>
+                <MessagePanel
+                    post={messageHandler}
+                    minHeight={MAIN_MESSAGE_PANEL_HEIGHT}
+                    placeholderMessage="Enter the public message"
+                />
+                <Seperator />
+                <MessageList
+                    messages={messages}
+                    deleteMessage={this.props.handleDeleteMessage}
+                />
+            </Fragment>)
+    }
+}
+
+const mapConnectToProps = (state) => ({
+    messages: state.post
+})
+
+const mapDispatchToProps = dispatch => ({
+    dispatchMessage: (message) => {
+        dispatch(addPost(message))
+    },
+    handleDeleteMessage: (id) => dispatch(deletePost(id))
+})
+
+export default connect(
+    mapConnectToProps, mapDispatchToProps
+)(MessageBoard);

@@ -1,0 +1,9 @@
+.modalHeader {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.closeModal {
+    cursor: pointer
+}
+

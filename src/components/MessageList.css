@@ -1,0 +1,13 @@
+.messageList {
+    margin: 3em;
+    border: 1px solid lightgray;
+    padding: 1em;
+}
+
+.message {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0.8em !important;
+    margin: 2em;
+    background: #e9ebee;
+}

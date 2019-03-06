@@ -1,0 +1,8 @@
+.messagePanel {
+    display: grid;
+    margin: 3em;
+}
+
+.postButton {
+    padding-top: 0.3em;
+}

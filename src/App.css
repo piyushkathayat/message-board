@@ -1,0 +1,13 @@
+.app {
+  margin: 2em;
+}
+
+.app-header {
+  background-color: #282c34;
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+}

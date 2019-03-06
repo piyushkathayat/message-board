@@ -1,0 +1,8 @@
+.buttons {
+    float: right;
+    cursor: pointer;
+}
+
+.modalHeader {
+    display: flex;
+}
