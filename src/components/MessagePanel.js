@@ -16,7 +16,7 @@ class MessagePanel extends Component {
     }
 
     render() {
-        const { minHeight: height, placeholderMessage } = this.props;
+        const { minHeight: height, placeholderMessage, isReply, buttonLabel } = this.props;
 
         const isValidPost = (string) => string.length > MIN_TEXT_LENGTH;
 
@@ -45,7 +45,7 @@ class MessagePanel extends Component {
         }
 
         return (
-            <div className="messagePanel" >
+            <div className={isReply ? 'replyMessage' : 'messagePanel'} >
                 <TextArea
                     ref={this.textRef}
                     placeholder={placeholderMessage}
@@ -57,8 +57,9 @@ class MessagePanel extends Component {
                     <Button
                         disabled={this.state.postDisabled}
                         floated="right"
+                        color="linkedin"
                         onClick={handlePost}>
-                        Post
+                        {buttonLabel ? buttonLabel : 'Post'}
                     </Button>
                 </div>
             </div >)

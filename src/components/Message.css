@@ -3,6 +3,21 @@
     cursor: pointer;
 }
 
-.modalHeader {
-    display: flex;
+.author {
+    padding-bottom: 2px;
+    border-bottom: 1px solid #365899;
+    color: #365899;
+    font-weight: 600;
 }
+
+.messageHeader {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+/* .replyMessages {
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 12px;
+    border-color: cornflowerblue;
+} */

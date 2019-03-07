@@ -1,9 +1,24 @@
 import ActionTypes from '../actions/ActionTypes';
 
+const addRepliesToMessages = (messages) => {
+    const parents = messages.filter(message => message.parentId === null);
+    parents.forEach(parent => {
+        const parentId = parent.id;
+        // check if message belongs to parent.
+        messages.forEach(message => {
+            if (message.parentId === parentId) {
+                parent.reply.push(message);
+            }
+            return message;
+        })
+    })
+    return messages.filter(message => message.parentId === null);
+};
+
 const post = (state = [], action) => {
     switch (action.type) {
         case ActionTypes.ADD_POST:
-            // console.log("ADD_POST");
+            console.log("ADD_POST", [...state, action.post]);
             return [...state, action.post];
         case ActionTypes.DELETE_POST:
             // console.log("DELETE_POST");
@@ -16,9 +31,11 @@ const post = (state = [], action) => {
                     { ...message, message: detail.message } : message
             })
         case ActionTypes.UPDATE_POST:
-            // add reply to message 
-            console.log("UPDATE_POST")
-            return state;
+            const allMessage = [...state, action.detail];
+            // Same as API Response : allMessage
+            const updateMessage = addRepliesToMessages(allMessage);
+            console.log('UPDATE_POST :', updateMessage);
+            return updateMessage;
         default:
             return state;
     }
