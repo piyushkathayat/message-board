@@ -1,0 +1,16 @@
+.replyItem {
+    margin-bottom: 5px;
+    border: 1px solid;
+    background: whitesmoke;
+    padding: 5px !important;
+    border-radius: 12px;
+    border-color: lightgray;
+}
+
+.replyList {
+    margin-bottom: 10px;
+}
+
+.replyItem .author {
+    margin-right: 10px;
+}
