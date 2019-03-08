@@ -13,12 +13,11 @@ In the project directory, please run the following commands:
 #### and then
 ### `npm start`
 
-### How to use - Message Board Application
+## Message Board Application - How to use?
 
 Message board application is a SPA which contains two main section on the main page.
 
 Upper section contains the Message Panel, where the user(probably logged in user) would write the message.
-and
-Lower section contans the MessageLists, where we display all the messages and their replies.
+The lower section contans the MessageList, where it disply all the messages and their replies.
 
-User can write a message publicly which could be shown into the Message List. In the message List section with each message there is possiblility to Edit, Deledte and Reply to the main message. Replied messages are not possible to delete.
+User can write a message publicly, which could be shown into the Message List. In the message List section, with each message there is possiblility to Edit, Delete and Reply to the main message. Replied messages are not possible to delete. They will be deleted with the main thread.
