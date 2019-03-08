@@ -8,6 +8,7 @@ import { getUniqueId } from '../utils/common';
 
 // TODO: move to CONST
 const MAIN_MESSAGE_PANEL_HEIGHT = 200;
+const MESSAGE_PANEL_MAIN_MESSAGE = 'Enter the public message';
 
 class MessageBoard extends Component {
     render() {
@@ -28,7 +29,7 @@ class MessageBoard extends Component {
                 <MessagePanel
                     post={messageHandler}
                     minHeight={MAIN_MESSAGE_PANEL_HEIGHT}
-                    placeholderMessage="Enter the public message"
+                    placeholderMessage={MESSAGE_PANEL_MAIN_MESSAGE}
                 />
                 <Seperator />
                 <MessageList

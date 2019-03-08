@@ -5,6 +5,9 @@ import MessagePanel from './MessagePanel';
 import ReplyList from './ReplyList';
 import './Message.css';
 
+//TODO: move to const
+const MESSAGE_PANEL_REPLY_MESSAGE = 'Write your comment...';
+
 class Message extends Component {
 
     constructor(props) {
@@ -42,15 +45,13 @@ class Message extends Component {
 
                     {isReplyAvailable && <ReplyList replies={reply} />}
 
-                    <div>
-                        <MessagePanel
-                            isReply
-                            rows={1}
-                            placeholderMessage="Write your comment..."
-                            buttonLabel="Reply"
-                            post={messageHandler}
-                        />
-                    </div>
+                    <MessagePanel
+                        isReply
+                        rows={1}
+                        placeholderMessage={MESSAGE_PANEL_REPLY_MESSAGE}
+                        buttonLabel="Reply"
+                        post={messageHandler}
+                    />
                 </div>
                 <EditModal
                     open={this.state.openModel}

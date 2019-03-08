@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import { editPost } from '../actions/Actions';
 import './EditModal.css';
 
+//TODO: move to const
+const EDIT_MESSAGE_PANEL_HEIGHT = 100;
+const MESSAGE_PANEL_EDIT_MESSAGE = 'Edit the public message';
+
 const EditModal = (props) => {
     const { open, close, detail } = props;
 
@@ -24,8 +28,8 @@ const EditModal = (props) => {
             </Modal.Header>
             <MessagePanel
                 post={messageHandler}
-                minHeight={100}
-                placeholderMessage="Enter the public message"
+                minHeight={EDIT_MESSAGE_PANEL_HEIGHT}
+                placeholderMessage={MESSAGE_PANEL_EDIT_MESSAGE}
                 value={detail.message}
             />
         </Modal >
