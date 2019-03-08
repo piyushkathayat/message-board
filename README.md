@@ -1,16 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Application used
-React
-Redux
-css
+React,
+Redux,
+css,
 jest and enzyme for test
 
 Download the repo from the git or use the Zip.
 In the project directory, please run the following commands:
 
 ### `npm install`
-and then
+  and then
 ### `npm start`
 
 ### How to use - Message Board Application
