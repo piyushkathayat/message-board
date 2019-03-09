@@ -18,13 +18,10 @@ const addRepliesToMessages = (messages) => {
 const post = (state = [], action) => {
     switch (action.type) {
         case ActionTypes.ADD_POST:
-            console.log("ADD_POST", [...state, action.post]);
             return [...state, action.post];
         case ActionTypes.DELETE_POST:
-            // console.log("DELETE_POST");
             return state.filter(message => message.id !== action.id);
         case ActionTypes.EDIT_POST:
-            console.log("EDIT_POST - Check when we have reply.");
             const { detail } = action;
             return state.map(message => {
                 return (message.id === detail.id) ?
@@ -33,9 +30,8 @@ const post = (state = [], action) => {
         case ActionTypes.UPDATE_POST:
             const allMessage = [...state, action.detail];
             // Same as API Response : allMessage
-            const updateMessage = addRepliesToMessages(allMessage);
-            console.log('UPDATE_POST :', updateMessage);
-            return updateMessage;
+            // console.log('[All messages]', allMessage);
+            return addRepliesToMessages(allMessage);
         default:
             return state;
     }

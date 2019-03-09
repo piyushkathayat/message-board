@@ -13,6 +13,10 @@
     height: 2.7em;
 }
 
+.replyMessage .postButton {
+    padding-top: 0;
+}
+
 .postButton {
     padding-top: 0.3em;
 }

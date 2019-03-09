@@ -10,7 +10,6 @@ import { getUniqueId } from '../utils/common';
 
 const MessageList = (props) => {
     const { messages, deleteMessage, replyMessage } = props;
-    // console.log("messages ==>", messages);
     const handleDeleteMessage = (id) => deleteMessage(id);
 
     const handleReplyMessage = (reply) => {

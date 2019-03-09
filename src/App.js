@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 import MessageBoard from "./containers/MessageBoard";
+import { MESSAGE_HEADER } from './constants/common';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
         <header className="app-header">
-          <div>Public Message Board</div>
+          <div>{MESSAGE_HEADER}</div>
         </header>
         <MessageBoard />
       </div>

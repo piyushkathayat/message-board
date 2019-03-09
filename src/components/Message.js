@@ -3,6 +3,7 @@ import { List, Icon } from 'semantic-ui-react';
 import EditModal from './EditModal';
 import MessagePanel from './MessagePanel';
 import ReplyList from './ReplyList';
+import { MESSAGE_PANEL_REPLY_MESSAGE } from '../constants/common';
 import './Message.css';
 
 class Message extends Component {
@@ -27,30 +28,33 @@ class Message extends Component {
 
         const isReplyAvailable = () => reply.length > 0;
 
+        const renderMessageHeader = () => {
+            return (
+                <div className="messageHeader">
+                    <span className="author">{author}</span>
+                    <span className="buttons">
+                        <Icon name='edit' onClick={handleEditMesssage} />
+                        <Icon name='trash' onClick={() => handleDeleteMesssage(id)} />
+                    </span>
+                </div>)
+        }
+
         return (
             <List.Item className="message">
                 <div>
-                    <div className="messageHeader">
-                        <span className="author">{author}</span>
-                        <span className="buttons">
-                            <Icon name='edit' onClick={handleEditMesssage} />
-                            <Icon name='trash' onClick={() => handleDeleteMesssage(id)} />
-                        </span>
-                    </div>
+                    {renderMessageHeader()}
 
                     <p>{message}</p>
-
+                    
                     {isReplyAvailable && <ReplyList replies={reply} />}
-
-                    <div>
-                        <MessagePanel
-                            isReply
-                            rows={1}
-                            placeholderMessage="Write your comment..."
-                            buttonLabel="Reply"
-                            post={messageHandler}
-                        />
-                    </div>
+                    
+                    <MessagePanel
+                        isReply
+                        rows={1}
+                        placeholderMessage={MESSAGE_PANEL_REPLY_MESSAGE}
+                        buttonLabel="Reply"
+                        post={messageHandler}
+                    />
                 </div>
                 <EditModal
                     open={this.state.openModel}

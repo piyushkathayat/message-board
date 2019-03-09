@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { TextArea, Button } from 'semantic-ui-react'
+import { MIN_TEXT_LENGTH } from '../constants/common';
 import './MessagePanel.css';
-
-const MIN_TEXT_LENGTH = 3; // TODO : move to CONST
 
 class MessagePanel extends Component {
     constructor(props) {
@@ -30,6 +29,7 @@ class MessagePanel extends Component {
             }
         };
 
+        // Post on Press Enter
         const handleOnEnter = (e) => {
             if (e.keyCode === 13 && e.shiftKey === false) {
                 handlePost();
