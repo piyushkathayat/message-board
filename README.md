@@ -13,6 +13,11 @@ In the project directory, please run the following commands:
 #### and then
 ### `npm start`
 
+To run all the test in the application
+### `npm run test a`
+or a single one
+### `npm run test app.test.js`
+
 ## Message Board Application - How to use?
 
 Message board application is a SPA which contains two main section on the main page.
