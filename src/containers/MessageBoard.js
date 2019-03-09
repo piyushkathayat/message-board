@@ -8,8 +8,14 @@ import {
 import { addPost, deletePost, updatePost } from '../actions/actions';
 import { Seperator } from '../components/Seperator';
 import { getUniqueId } from '../utils/common';
+import { getPost } from '../actions/actions';
 
 class MessageBoard extends Component {
+    
+    componentDidMount = () => {
+        this.props.getPost();
+    };
+
     render() {
         const { messages } = this.props;
         const messageHandler = (post) => {
@@ -49,7 +55,8 @@ const mapDispatchToProps = dispatch => ({
         dispatch(addPost(message))
     },
     handleDeleteMessage: (id) => dispatch(deletePost(id)),
-    handleReplyMessage: (message) => dispatch(updatePost(message))
+    handleReplyMessage: (message) => dispatch(updatePost(message)),
+    getPost: () => dispatch(getPost())
 })
 
 export default connect(

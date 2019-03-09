@@ -21,6 +21,9 @@ const MessageList = (props) => {
         <div className="messageList">
             {messages.length > 0 ?
                 <List>
+                <Label color='blue' ribbon>
+                    {`Received messages: ${messages.length}`}
+                </Label>
                     {messages.map((messageDetail, index) => {
                         return (
                             <Message
