@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import MessageBoard from "./containers/MessageBoard";
+import { MESSAGE_HEADER } from './constants/common';
 import './App.css';
-
-// TODO: move to CONST
-const MESSAGE_HEADER = 'Public Message Board';
 
 class App extends Component {
   render() {

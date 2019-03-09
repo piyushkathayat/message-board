@@ -2,13 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import MessagePanel from '../components/MessagePanel';
 import MessageList from '../components/MessageList';
+import {
+    MAIN_MESSAGE_PANEL_HEIGHT,
+    MESSAGE_PANEL_MAIN_MESSAGE } from '../constants/common';
 import { addPost, deletePost, updatePost } from '../actions/actions';
 import { Seperator } from '../components/Seperator';
 import { getUniqueId } from '../utils/common';
-
-// TODO: move to CONST
-const MAIN_MESSAGE_PANEL_HEIGHT = 200;
-const MESSAGE_PANEL_MAIN_MESSAGE = 'Enter the public message';
 
 class MessageBoard extends Component {
     render() {

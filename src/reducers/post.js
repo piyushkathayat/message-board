@@ -30,6 +30,7 @@ const post = (state = [], action) => {
         case ActionTypes.UPDATE_POST:
             const allMessage = [...state, action.detail];
             // Same as API Response : allMessage
+            // console.log('[All messages]', allMessage);
             return addRepliesToMessages(allMessage);
         default:
             return state;

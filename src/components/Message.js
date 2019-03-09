@@ -3,10 +3,8 @@ import { List, Icon } from 'semantic-ui-react';
 import EditModal from './EditModal';
 import MessagePanel from './MessagePanel';
 import ReplyList from './ReplyList';
+import { MESSAGE_PANEL_REPLY_MESSAGE } from '../constants/common';
 import './Message.css';
-
-//TODO: move to CONST
-const MESSAGE_PANEL_REPLY_MESSAGE = 'Write your comment...';
 
 class Message extends Component {
 
@@ -17,7 +15,7 @@ class Message extends Component {
 
     render() {
         const { author, message, id, reply } = this.props.detail;
-        console.log(reply);
+
         const handleDeleteMesssage = (id) => this.props.deleteMessage(id);
 
         const handleEditMesssage = () => this.setState({ openModel: true })
@@ -30,21 +28,26 @@ class Message extends Component {
 
         const isReplyAvailable = () => reply.length > 0;
 
+        const renderMessageHeader = () => {
+            return (
+                <div className="messageHeader">
+                    <span className="author">{author}</span>
+                    <span className="buttons">
+                        <Icon name='edit' onClick={handleEditMesssage} />
+                        <Icon name='trash' onClick={() => handleDeleteMesssage(id)} />
+                    </span>
+                </div>)
+        }
+
         return (
             <List.Item className="message">
                 <div>
-                    <div className="messageHeader">
-                        <span className="author">{author}</span>
-                        <span className="buttons">
-                            <Icon name='edit' onClick={handleEditMesssage} />
-                            <Icon name='trash' onClick={() => handleDeleteMesssage(id)} />
-                        </span>
-                    </div>
+                    {renderMessageHeader()}
 
                     <p>{message}</p>
-
+                    
                     {isReplyAvailable && <ReplyList replies={reply} />}
-
+                    
                     <MessagePanel
                         isReply
                         rows={1}

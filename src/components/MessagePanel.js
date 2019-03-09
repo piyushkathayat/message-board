@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { TextArea, Button } from 'semantic-ui-react'
+import { MIN_TEXT_LENGTH } from '../constants/common';
 import './MessagePanel.css';
-
-// TODO : move to CONST
-const MIN_TEXT_LENGTH = 3;
 
 class MessagePanel extends Component {
     constructor(props) {

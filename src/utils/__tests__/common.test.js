@@ -20,10 +20,16 @@ const getMessages = () => [{
     }] 
 }];
 
-describe('test common utility', () => {
-    it('it returns unique id', () => {
+describe('test common util functions', () => {
+    it('it should return a unique id', () => {
         const messages = getMessages();
         const actualResult = getUniqueId(messages);
         expect(actualResult).toEqual(4);
+    });
+
+    it('it should return 1 if no messages', () => {
+        const messages = [];
+        const actualResult = getUniqueId(messages);
+        expect(actualResult).toEqual(1);
     });
 });
