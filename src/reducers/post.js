@@ -1,5 +1,6 @@
 import ActionTypes from '../actions/ActionTypes';
 
+// TODO: it should move to selectors!
 const addRepliesToMessages = (messages) => {
     const parents = messages.filter(message => message.parentId === null);
     parents.forEach(parent => {
@@ -7,6 +8,7 @@ const addRepliesToMessages = (messages) => {
         // check if message belongs to parent.
         messages.forEach(message => {
             if (message.parentId === parentId) {
+                if (!parent.reply) parent.reply = [];
                 parent.reply.push(message);
             }
             return message;
@@ -17,6 +19,8 @@ const addRepliesToMessages = (messages) => {
 
 const post = (state = [], action) => {
     switch (action.type) {
+        case ActionTypes.POST_RECEIVED:
+            return addRepliesToMessages(action.getMockData);
         case ActionTypes.ADD_POST:
             return [...state, action.post];
         case ActionTypes.DELETE_POST:
@@ -29,8 +33,6 @@ const post = (state = [], action) => {
             })
         case ActionTypes.UPDATE_POST:
             const allMessage = [...state, action.detail];
-            // Same as API Response : allMessage
-            // console.log('[All messages]', allMessage);
             return addRepliesToMessages(allMessage);
         default:
             return state;
