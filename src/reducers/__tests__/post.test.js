@@ -9,14 +9,14 @@ const getInitialState = () => [{
     author: 1, parentId: null, message: 'test message', id: 2, reply: []
 }];
 
-describe('POST Reducer', () => {
-    it('should return the initial state', () => {
+describe('Test Post Reducer', () => {
+    it('it should return the initial state', () => {
         const initialState = [];
         const action = { type: '' };
         expect(post(initialState, action)).toEqual([]);
     });
 
-    test('add posts', () => {
+    it('it should add a new posts', () => {
         const initialState = [];
         const action = {
             type: ActionTypes.ADD_POST,
@@ -40,7 +40,7 @@ describe('POST Reducer', () => {
         }]);
     });
 
-    test('remove post', () => {
+    it('it should remove post', () => {
         const initialState = getInitialState();
         const action = { type: ActionTypes.DELETE_POST, id: 1 };
         const expected = post(initialState, action);
@@ -55,7 +55,7 @@ describe('POST Reducer', () => {
         ]);
     });
 
-    test('edit post', () => {
+    it('it should edit post', () => {
         const initialState = getInitialState();
         const action = { type: ActionTypes.EDIT_POST, detail: { author: 1, id: 1, message: 'new message', parentId: null } };
         const expected = post(initialState, action);
@@ -75,7 +75,7 @@ describe('POST Reducer', () => {
         }])
     });
 
-    test('update post', () => {
+    it('it should update main post with replies', () => {
         const initialState = getInitialState();
         const action = { type: ActionTypes.UPDATE_POST, detail: { author: 1, id: 3, message: 'my reply', parentId: 2 } };
         const expected = post(initialState, action);

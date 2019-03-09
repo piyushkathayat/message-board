@@ -17,7 +17,7 @@ class Message extends Component {
 
     render() {
         const { author, message, id, reply } = this.props.detail;
-
+        console.log(reply);
         const handleDeleteMesssage = (id) => this.props.deleteMessage(id);
 
         const handleEditMesssage = () => this.setState({ openModel: true })

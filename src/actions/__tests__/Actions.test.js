@@ -14,7 +14,7 @@ const getInitState = () => [{
     parentId: null
 }];
 
-describe('application actions', () => {
+describe('Test all actions', () => {
     it('action for get post', () => {
         const initialAction = { type: ActionTypes.GET_POST };
         const actualResult = getPost();

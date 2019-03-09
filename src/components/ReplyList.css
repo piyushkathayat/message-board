@@ -1,4 +1,5 @@
 .replyItem {
+    display: flex !important;
     margin-bottom: 5px;
     border: 1px solid;
     background: whitesmoke;
