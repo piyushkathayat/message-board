@@ -5,7 +5,7 @@ export const Seperator = () => (
     <Divider horizontal>
         <h4>
             <Icon name='comments' />
-            Messages
+            <span>Messages</span>
         </h4>
     </Divider>
 );
