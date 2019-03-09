@@ -1,10 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Application detail
+
 #### React,
 #### Redux,
 #### css,
 #### jest and enzyme for test
+#### saga 
 
 Download the repo from the git or use the Zip.
 In the project directory, please run the following commands:
@@ -27,3 +29,5 @@ Upper section contains the Message Panel, where the user(probably logged in user
 The lower section contans the MessageList, where it displys all the messages and their replies.
 
 User can write a message publicly, which would be visible into the Message List. In the message List section, with each message there is possiblility to Edit, Delete and Reply to the main message. Replied messages are not possible to delete. They will be deleted with the main thread.
+
+On initial startup, a messages is shown from the mockedResponse. whcih, you can be edited or deleted. 
