@@ -9,14 +9,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Download the repo from the git or use the Zip.
 In the project directory, please run the following commands:
 
-### `npm install`
+### `npm install` OR `yarn install`
 #### and then
-### `npm start`
+### `npm start` OR `yarn start`
 
 To run all the test in the application
-### `npm run test a`
+### `npm run test a` OR `yarn run test a`
 or a single one
-### `npm run test app.test.js`
+### `npm run test app.test.js` OR `yarn run test app.test.js`
 
 ## Message Board Application - How to use?
 
