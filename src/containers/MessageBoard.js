@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import MessagePanel from '../components/MessagePanel';
 import MessageList from '../components/MessageList';
-import { addPost, deletePost, updatePost } from '../actions/Actions';
+import { addPost, deletePost, updatePost } from '../actions/actions';
 import { Seperator } from '../components/Seperator';
 import { getUniqueId } from '../utils/common';
 

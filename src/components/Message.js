@@ -5,7 +5,7 @@ import MessagePanel from './MessagePanel';
 import ReplyList from './ReplyList';
 import './Message.css';
 
-//TODO: move to const
+//TODO: move to CONST
 const MESSAGE_PANEL_REPLY_MESSAGE = 'Write your comment...';
 
 class Message extends Component {

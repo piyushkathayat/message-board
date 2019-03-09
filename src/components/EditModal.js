@@ -2,10 +2,10 @@ import React from 'react';
 import { Modal, Icon } from 'semantic-ui-react';
 import MessagePanel from './MessagePanel';
 import { connect } from 'react-redux';
-import { editPost } from '../actions/Actions';
+import { editPost } from '../actions/actions';
 import './EditModal.css';
 
-//TODO: move to const
+//TODO: move to CONST
 const EDIT_MESSAGE_PANEL_HEIGHT = 100;
 const MESSAGE_PANEL_EDIT_MESSAGE = 'Edit the public message';
 

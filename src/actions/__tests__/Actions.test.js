@@ -4,7 +4,7 @@ import {
     deletePost,
     editPost,
     updatePost
-    } from '../Actions';
+    } from '../actions';
 import ActionTypes from '../ActionTypes';
 
 const getInitState = () => [{
