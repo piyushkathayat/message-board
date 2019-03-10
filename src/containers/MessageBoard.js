@@ -9,6 +9,7 @@ import { addPost, deletePost, updatePost } from '../actions/actions';
 import { Seperator } from '../components/Seperator';
 import { getUniqueId } from '../utils/common';
 import { getPost } from '../actions/actions';
+import PropTypes from 'prop-types';
 
 class MessageBoard extends Component {
     
@@ -45,6 +46,17 @@ class MessageBoard extends Component {
             </Fragment>)
     }
 }
+
+MessageBoard.propType = {
+    messages: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            author: PropTypes.node.isRequired,
+            message: PropTypes.string.isRequired,
+            parentId: PropTypes.node
+        })
+    )
+};
 
 const mapConnectToProps = (state) => ({
     messages: state.post

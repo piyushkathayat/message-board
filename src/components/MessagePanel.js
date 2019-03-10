@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TextArea, Button } from 'semantic-ui-react'
 import { MIN_TEXT_LENGTH } from '../constants/common';
+import PropTypes from 'prop-types';
 import './MessagePanel.css';
 
 class MessagePanel extends Component {
@@ -11,11 +12,12 @@ class MessagePanel extends Component {
     }
 
     componentDidMount() {
-        this.setState({ value: this.props.value });
+        const  { value } = this.props;
+        this.setState({ value });
     }
 
     render() {
-        const { minHeight: height, placeholderMessage, isReply, buttonLabel } = this.props;
+        const { minHeight: height, placeholderMessage, isReply, buttonLabel, post } = this.props;
 
         const isValidPost = (string) => string.length > MIN_TEXT_LENGTH;
 
@@ -39,7 +41,7 @@ class MessagePanel extends Component {
         const handlePost = () => {
             const { value } = this.state;
             if (isValidPost(value)) {
-                this.props.post(value);
+                post(value);
                 this.setState({ postDisabled: true, value: '' })
             }
         }
@@ -64,6 +66,16 @@ class MessagePanel extends Component {
                 </div>
             </div >)
     }
+};
+
+MessagePanel.propTypes  = {
+    placeholderMessage: PropTypes.string.isRequired,
+    isReply: PropTypes.bool,
+    minHeight: PropTypes.number,
+    rows: PropTypes.number,
+    value: PropTypes.string,
+    buttonLabel: PropTypes.string,
+    post: PropTypes.func.isRequired
 };
 
 export default MessagePanel;

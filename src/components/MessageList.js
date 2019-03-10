@@ -3,6 +3,7 @@ import { List, Label } from 'semantic-ui-react'
 import Message from './Message';
 import { getUniqueId } from '../utils/common';
 import { NO_POST_AVAILABLE } from '../constants/common';
+import PropTypes from 'prop-types';
 import './MessageList.css';
 
 /**
@@ -46,6 +47,12 @@ const renderCounterLabel = () => {
             }
         </div>
     );
+};
+
+MessageList.propTypes =  {
+    messages: PropTypes.array,
+    deleteMessage: PropTypes.func,
+    replyMessage: PropTypes.func
 };
 
 export default MessageList;
