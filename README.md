@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #### Redux,
 #### React Semantic ui,
 #### css
+#### prop-types
 #### jest and enzyme for test
 #### saga 
 
@@ -31,4 +32,4 @@ The lower section contans the MessageList, where it displys all the messages and
 
 User can write a message publicly, which would be visible into the Message List. In the message List section, with each message there is possiblility to Edit, Delete and Reply to the main message. Replied messages are not possible to delete. They will be deleted with the main thread.
 
-On initial startup, a messages is shown from the mockedResponse. whcih, you can be edited or deleted. 
+On initial startup, a messages is shown from the mockedResponse. whcih, can be edited or deleted.
