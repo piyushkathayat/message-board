@@ -4,7 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### React,
 #### Redux,
-#### css,
+#### Semantic react,
+#### css
 #### jest and enzyme for test
 #### saga 
 

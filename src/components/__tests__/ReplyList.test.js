@@ -18,10 +18,9 @@ const getReplies = () => [{
 describe('Test reply list', () => {
     const replies = getReplies();
     const wrapper = shallow(<ReplyList replies={replies}/>);
-    const list = wrapper.find('List');
 
     it('it should render all replies', () => {
-        expect(list).toBeDefined();
+        expect(wrapper.find('List')).toBeDefined();
         expect(wrapper.find('.replyItem')).toHaveLength(replies.length);
     })
 
