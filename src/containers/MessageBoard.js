@@ -58,7 +58,7 @@ MessageBoard.propType = {
     )
 };
 
-const mapConnectToProps = (state) => ({
+const mapStateToProps = (state) => ({
     messages: state.post
 })
 
@@ -72,5 +72,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
-    mapConnectToProps, mapDispatchToProps
+    mapStateToProps, mapDispatchToProps
 )(MessageBoard);
