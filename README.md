@@ -29,11 +29,11 @@ You can also run a single test using
 
 #### Built With
 ```
-- React,
-- Redux,
+- React
+- Redux
 - React Semantic ui,
 - css
 - prop-types
-- jest and enzyme for test
+- jest and enzyme
 - saga 
 ```
