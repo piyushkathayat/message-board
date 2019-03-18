@@ -1,35 +1,41 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Application detail
+## Public message board
 
-#### React,
-#### Redux,
-#### React Semantic ui,
-#### css
-#### prop-types
-#### jest and enzyme for test
-#### saga 
+Public Message board application is a Single Page Application which contains two main sections on the main page.
 
-Download the repo from the git or use the Zip.
-In the project directory, please run the following commands:
+The upper section contains a Message Panel, where the user can write a message and lower section contains a MessageList, where it displays all the messages entered by the users with their replies (if any).
 
-### `npm install` or `yarn install`
-#### and then
-### `npm start` or `yarn start`
+The user can write a message publicly or reply to an existing message. There is also a possibility to edit and delete the main message. Replied messages are not possible to delete, they will be removed with the main thread.
 
+## Getting Started
+
+Follow the below steps to start the application
+
+### Installing
+Clone the repo to your local machine or download as a zip. and go to the project directory.
+
+`npm install` or `yarn install`
+and then
+`npm start` or `yarn start`
+
+### Running the tests
 To run all the test in the application
-### `npm run test a` or `yarn run test a`
-or a single one
-### `npm run test app.test.js` or
-#### `yarn run test app.test.js`
+`npm run test a` or
+`yarn run test a`
 
-## Message Board Application - How to use?
+You can also run a single test using 
 
-Message board application is a SPA which contains two main sections on the main page.
+`npm run test app.test.js` or
+`yarn run test app.test.js`
 
-Upper section contains the Message Panel, where the user(probably logged in user) would write the message.
-The lower section contans the MessageList, where it displys all the messages and their replies.
-
-User can write a message publicly, which would be visible into the Message List. In the message List section, with each message there is possiblility to Edit, Delete and Reply to the main message. Replied messages are not possible to delete. They will be deleted with the main thread.
-
-On initial startup, a messages is shown from the mockedResponse. whcih, can be edited or deleted.
+#### Built With
+```
+- React,
+- Redux,
+- React Semantic ui,
+- css
+- prop-types
+- jest and enzyme for test
+- saga 
+```
