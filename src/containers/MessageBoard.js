@@ -17,31 +17,33 @@ class MessageBoard extends Component {
         this.props.getPost();
     };
 
-    render() {
+    messageHandler = (post) => {
         const { messages } = this.props;
-        const messageHandler = (post) => {
-            const message = {
-                id: getUniqueId(messages),
-                message: post,
-                parentId: null,
-                author: 'loggedInUser',
-                reply: []
-            }
-            this.props.dispatchMessage(message);
-        };
+        const message = {
+            id: getUniqueId(messages),
+            message: post,
+            parentId: null,
+            author: 'loggedInUser',
+            reply: []
+        }
+        this.props.dispatchMessage(message);
+    };
 
+
+    render() {
+        const { messages, handleDeleteMessage, handleReplyMessage } = this.props;
         return (
             <Fragment>
                 <MessagePanel
-                    post={messageHandler}
+                    post={this.messageHandler}
                     minHeight={MAIN_MESSAGE_PANEL_HEIGHT}
                     placeholderMessage={MESSAGE_PANEL_MAIN_MESSAGE}
                 />
                 <Seperator />
                 <MessageList
                     messages={messages}
-                    deleteMessage={this.props.handleDeleteMessage}
-                    replyMessage={this.props.handleReplyMessage}
+                    deleteMessage={handleDeleteMessage}
+                    replyMessage={handleReplyMessage}
                 />
             </Fragment>)
     }

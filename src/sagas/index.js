@@ -1,17 +1,17 @@
-import { put, takeLatest, all, call } from 'redux-saga/effects';
+import { put, takeLatest, all } from 'redux-saga/effects';
 import ActionTypes from '../actions/ActionTypes';
-import { mockData } from './mockData';
+// import { mockData } from './mockData';
+// const getMockData = mockData();
 
-const getMockData = mockData();
+const GET_MOCK_DATA = 'http://www.mocky.io/v2/5c9089da3300004e006496d1';
 
 export function* fetchPost() {
     try {
-        const response = yield call('https://mockapi/getPost')
-        console.log("API Response", response);
-        yield put({ type:ActionTypes.POST_RECEIVED, json: response.json()});
+        const response = yield fetch(GET_MOCK_DATA)
+        .then(response => response.json(), );
+        yield put({ type:ActionTypes.POST_RECEIVED, getMockData: response});
     } catch (e) {
         console.log('Error on API call : Get mockData');
-        yield put({ type:ActionTypes.POST_RECEIVED, getMockData});
     }
   }
 
