@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Label } from 'semantic-ui-react'
 import Message from './Message';
 import { getUniqueId } from '../utils/common';
-import { NO_POST_AVAILABLE } from '../constants/common';
+import { NO_POST_AVAILABLE, MESSAGE_COUNT_MESSAGE } from '../constants/common';
 import PropTypes from 'prop-types';
 import './MessageList.css';
 
@@ -19,13 +19,14 @@ const MessageList = (props) => {
         replyMessage(replyMsg)
     };
 
-const renderCounterLabel = () => {
-    return (
-        <Label color='blue' ribbon>
-            {`Received messages: ${messages.length}`}
-        </Label>
-    )
-}
+    const renderCounterLabel = () => {
+        return (
+            <Label color='blue' ribbon>
+                {`${MESSAGE_COUNT_MESSAGE} ${messages.length}`}
+            </Label>
+        )
+    };
+
     return (
         <div className="messageList">
             {messages.length > 0 ?

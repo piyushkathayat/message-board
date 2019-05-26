@@ -6,7 +6,7 @@ import {
     MAIN_MESSAGE_PANEL_HEIGHT,
     MESSAGE_PANEL_MAIN_MESSAGE } from '../constants/common';
 import { addPost, deletePost, updatePost } from '../actions/actions';
-import { Seperator } from '../components/Seperator';
+import { Separator } from '../components/Separator';
 import { getUniqueId } from '../utils/common';
 import { getPost } from '../actions/actions';
 import PropTypes from 'prop-types';
@@ -18,7 +18,7 @@ class MessageBoard extends Component {
     };
 
     messageHandler = (post) => {
-        const { messages } = this.props;
+        const { messages, dispatchMessage } = this.props;
         const message = {
             id: getUniqueId(messages),
             message: post,
@@ -26,9 +26,8 @@ class MessageBoard extends Component {
             author: 'loggedInUser',
             reply: []
         }
-        this.props.dispatchMessage(message);
+        dispatchMessage(message);
     };
-
 
     render() {
         const { messages, handleDeleteMessage, handleReplyMessage } = this.props;
@@ -39,7 +38,7 @@ class MessageBoard extends Component {
                     minHeight={MAIN_MESSAGE_PANEL_HEIGHT}
                     placeholderMessage={MESSAGE_PANEL_MAIN_MESSAGE}
                 />
-                <Seperator />
+                <Separator />
                 <MessageList
                     messages={messages}
                     deleteMessage={handleDeleteMessage}
