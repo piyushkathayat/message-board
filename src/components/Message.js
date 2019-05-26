@@ -7,46 +7,46 @@ import { MESSAGE_PANEL_REPLY_MESSAGE } from '../constants/common';
 import './Message.css';
 
 class Message extends Component {
-
     constructor(props) {
         super(props);
         this.state = { openModel: false };
     }
 
+    handleEditMesssage = () => this.setState({ openModel: true })
+
+    handleDeleteMesssage = (id) => this.props.deleteMessage(id);
+
+    renderMessageHeader = () => {
+        const { author, id } = this.props.detail; 
+        return (
+            <div className="messageHeader">
+                <span className="author">{author}</span>
+                <span className="buttons">
+                    <Icon name='edit' onClick={this.handleEditMesssage} />
+                    <Icon name='trash' onClick={() => this.handleDeleteMesssage(id)} />
+                </span>
+            </div>)
+    }
+
+    handleModalClose = () => this.setState({ openModel: false });
+
+    isReplyAvailable = () => this.props.detail.reply.length > 0;
+
     render() {
-        const { author, message, id, reply } = this.props.detail;
-
-        const handleDeleteMesssage = (id) => this.props.deleteMessage(id);
-
-        const handleEditMesssage = () => this.setState({ openModel: true })
-
-        const handleModalClose = () => this.setState({ openModel: false });
+        const { message, id, reply } = this.props.detail; 
 
         const messageHandler = (message) => {
             this.props.replyMessage({ message, parentId: id });
         };
 
-        const isReplyAvailable = () => reply.length > 0;
-
-        const renderMessageHeader = () => {
-            return (
-                <div className="messageHeader">
-                    <span className="author">{author}</span>
-                    <span className="buttons">
-                        <Icon name='edit' onClick={handleEditMesssage} />
-                        <Icon name='trash' onClick={() => handleDeleteMesssage(id)} />
-                    </span>
-                </div>)
-        }
-
         return (
             <List.Item className="message">
                 <div>
-                    {renderMessageHeader()}
+                    {this.renderMessageHeader()}
 
                     <p>{message}</p>
                     
-                    {isReplyAvailable && <ReplyList replies={reply} />}
+                    {this.isReplyAvailable && <ReplyList replies={reply} />}
                     
                     <MessagePanel
                         isReply
@@ -58,7 +58,7 @@ class Message extends Component {
                 </div>
                 <EditModal
                     open={this.state.openModel}
-                    close={() => handleModalClose()}
+                    close={() => this.handleModalClose()}
                     detail={this.props.detail}
                 />
             </List.Item>

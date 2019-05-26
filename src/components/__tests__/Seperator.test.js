@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Seperator } from '../Seperator';
+import { Separator } from '../Separator';
 
-describe('Test Seperator', () => {
-    const wrapper = shallow(<Seperator />);
+describe('Test Separator', () => {
+    const wrapper = shallow(<Separator />);
     const divider = wrapper.find('Divider');
 
     it('it should have divider and heading tag', () => {

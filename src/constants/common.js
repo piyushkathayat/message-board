@@ -13,3 +13,5 @@ export const MAIN_MESSAGE_PANEL_HEIGHT = 200;
 export const EDIT_MESSAGE_PANEL_HEIGHT = 100;
 
 export const MIN_TEXT_LENGTH = 0;
+
+export const MESSAGE_COUNT_MESSAGE = 'Message Received:';

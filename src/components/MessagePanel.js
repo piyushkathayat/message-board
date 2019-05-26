@@ -16,35 +16,35 @@ class MessagePanel extends Component {
         this.setState({ value });
     }
 
+    isValidPost = (string) => string.length > MIN_TEXT_LENGTH;
+
+    // Post button validation
+    handleTextInput = (e, data) => {
+        this.setState({ value: data.value });
+        if (this.isValidPost(data.value)) {
+            this.setState({ postDisabled: false })
+        } else {
+            this.setState({ postDisabled: true })
+        }
+    };
+
+    // Post on Press Enter
+    handleOnEnter = (e) => {
+        if (e.keyCode === 13 && e.shiftKey === false) {
+            this.handlePost();
+        }
+    }
+
+    handlePost = () => {
+        const { value } = this.state;
+        if (this.isValidPost(value)) {
+            this.props.post(value);
+            this.setState({ postDisabled: true, value: '' })
+        }
+    }
+
     render() {
-        const { minHeight: height, placeholderMessage, isReply, buttonLabel, post } = this.props;
-
-        const isValidPost = (string) => string.length > MIN_TEXT_LENGTH;
-
-        // Post button validation
-        const handleTextInput = (e, data) => {
-            this.setState({ value: data.value });
-            if (isValidPost(data.value)) {
-                this.setState({ postDisabled: false })
-            } else {
-                this.setState({ postDisabled: true })
-            }
-        };
-
-        // Post on Press Enter
-        const handleOnEnter = (e) => {
-            if (e.keyCode === 13 && e.shiftKey === false) {
-                handlePost();
-            }
-        }
-
-        const handlePost = () => {
-            const { value } = this.state;
-            if (isValidPost(value)) {
-                post(value);
-                this.setState({ postDisabled: true, value: '' })
-            }
-        }
+        const { minHeight: height, placeholderMessage, isReply, buttonLabel } = this.props;
 
         return (
             <div className={isReply ? 'replyMessage' : 'messagePanel'} >
@@ -52,15 +52,15 @@ class MessagePanel extends Component {
                     ref={this.textRef}
                     placeholder={placeholderMessage}
                     style={{ minHeight: height }}
-                    onChange={handleTextInput}
-                    onKeyDown={handleOnEnter}
+                    onChange={this.handleTextInput}
+                    onKeyDown={this.handleOnEnter}
                     value={this.state.value} />
                 <div className="postButton">
                     <Button
                         disabled={this.state.postDisabled}
                         floated="right"
                         color="linkedin"
-                        onClick={handlePost}>
+                        onClick={this.handlePost}>
                         {buttonLabel ? buttonLabel : 'Post'}
                     </Button>
                 </div>
